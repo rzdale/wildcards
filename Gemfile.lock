@@ -156,7 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  braintree
+  braintree (~> 2.68.2)
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)

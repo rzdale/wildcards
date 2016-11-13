@@ -5,7 +5,7 @@ name, number, text, ptype, rarity, hp, weakness, resistance, retreatcost, img_sr
 
 
 <% @cards.each do |card| %>
-  <%= card.name %>,
+  <%= link_to card.name, "/cards/#{card.id}" %>,
   <%= card.number %>,
   <%= card.text %>,
   <%= card.ptype %>,

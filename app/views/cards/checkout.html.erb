@@ -1,0 +1,20 @@
+<%= @card.name %>,
+<%= @card.number %>,
+<%= @card.text %>,
+<%= @card.ptype %>,
+<%= @card.rarity %>,
+<%= @card.hp %>,
+<%= @card.weakness %>,
+<%= @card.resistance %>,
+<%= @card.retreatcost %>,
+<%= @card.img_src %><br>
+
+Please enter your payment information:
+
+<form action="/cards/:id/purchase" id="purchaseform">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey"><br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse"><br><br>
+    <input type="submit" id="submitpurchase" value="Submit">
+</form>

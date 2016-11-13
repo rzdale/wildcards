@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use braintree for payments
-gem 'braintree'
+gem "braintree", "~> 2.68.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

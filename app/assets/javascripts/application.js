@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+    
+    // $("body").css("background-color", "red");
+
+    
+    $("#purchaseform").on("click", "#submitpurchase", function(event){
+        event.preventDefault();
+        
+        
+        alert("hey");
+     
+    });
+    
+    
+});
