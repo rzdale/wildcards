@@ -9,29 +9,35 @@
 <%= @card.retreatcost %>,
 <%= @card.img_src %><br>
 
+
+
 <p>Please enter your payment information:</p>
 
-<p><button id="clientgenerator">clicky</button></p>
-
-<%= form_tag("/cards/#{@card.id}/purchase", method: "get", ) do %>
+<%= form_tag("/cards/#{@card.id}/purchase", method: "get", id: "cardForm") do %>
 
     Name:<br>
-    <input type="text" name="name" ><br><br>
+    <input type="text" name="name" ><br>
     Address Line 1:<br>
-    <input type="text" name="address_line_1" ><br><br>
+    <input type="text" name="address_line_1" ><br>
     Address Line 2:<br>
-    <input type="text" name="address_line_2" ><br><br>
+    <input type="text" name="address_line_2" ><br>
     City:<br>
-    <input type="text" name="city" ><br><br>
+    <input type="text" name="city" ><br>
     State:<br>
-    <input type="text" name="state_abbr" ><br><br>
+    <input type="text" name="state_abbr" ><br>
     Zip Code:<br>
-    <input type="text" name="zip_code" ><br><br>
+    <input type="text" name="zip_code" ><br>
+    Card number:<br>
+    <div id="card_number" class="hosted-field"></div>  
+    CVV:<br>
+    <div id="cvv" class="hosted-field"></div>
+    expiration_date:<br>
+    <div id="expiration_date" class="hosted-field"></div>  
+    postal_code:<br>
+    <div id="postal_code" class="hosted-field"></div>
+
+    <input type="hidden" name="price" value="<%= @card.price %>,">
     
-    
-    <input type="hidden" name="price" value="#{@card.price}">
-    
-    <div id="purchaseform"></div>
     <input type="submit" id="submitpurchase" value="Submit">
 <% end %>
     
