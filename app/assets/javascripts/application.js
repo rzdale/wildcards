@@ -21,13 +21,34 @@ $(document).ready(function(){
     // $("body").css("background-color", "red");
 
     
-    $("#purchaseform").on("click", "#submitpurchase", function(event){
-        event.preventDefault();
+    // $("#purchaseform").on("click", "#submitpurchase", function(event){
+    //     event.preventDefault();
         
         
-        alert("hey");
+    //     alert("hey");
+     
+    // });
+    
+    $("#clientgenerator").on("click", function(event){
+        
+        $.ajax({
+          url: "/client_token"
+        }).done(function(response) {
+            
+            
+            braintree.setup(response, 'dropin', {
+              container: "purchaseform"
+            });
+        });
      
     });
     
     
+    
+    
+    
+    
+    
 });
+
+

@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get "/cards" => "cards#index"
   
   
-  
+  get "/client_token" => "cards#client_token"
   
   get "/cards/:id" => "cards#show"
   
   get "/cards/:id/checkout" => "cards#checkout"
+  
+  get "/cards/:id/purchase" => "cards#purchase"
  
 end
