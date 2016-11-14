@@ -1,0 +1,38 @@
+<%= @card.name %>,
+<%= @card.number %>,
+<%= @card.text %>,
+<%= @card.ptype %>,
+<%= @card.rarity %>,
+<%= @card.hp %>,
+<%= @card.weakness %>,
+<%= @card.resistance %>,
+<%= @card.retreatcost %>,
+<%= @card.img_src %><br>
+
+<p>Please enter your payment information:</p>
+
+<p><button id="clientgenerator">clicky</button></p>
+
+<%= form_tag("/cards/#{@card.id}/purchase", method: "get", ) do %>
+
+    Name:<br>
+    <input type="text" name="name" ><br><br>
+    Address Line 1:<br>
+    <input type="text" name="address_line_1" ><br><br>
+    Address Line 2:<br>
+    <input type="text" name="address_line_2" ><br><br>
+    City:<br>
+    <input type="text" name="city" ><br><br>
+    State:<br>
+    <input type="text" name="state_abbr" ><br><br>
+    Zip Code:<br>
+    <input type="text" name="zip_code" ><br><br>
+    
+    
+    <input type="hidden" name="price" value="#{@card.price}">
+    
+    <div id="purchaseform"></div>
+    <input type="submit" id="submitpurchase" value="Submit">
+<% end %>
+    
+
