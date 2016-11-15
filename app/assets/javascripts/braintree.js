@@ -1,13 +1,10 @@
 function btload(){
-    alert("test");
     if (document.getElementById('cardForm')) {
-        alert("test2");
         $.ajax({
           url: "/client_token"
         }).done(function(response_token) {
             
             var form = document.querySelector('#cardForm');
-            alert("test 3 - about to create client ");
             braintree.client.create(
                 { authorization: response_token }, 
                 function(err, clientInstance) {
@@ -15,7 +12,7 @@ function btload(){
                     console.error(err);
                     return;
                   }
-                alert("test3");
+
                 braintree.hostedFields.create({
                     client: clientInstance,
                     styles: {
@@ -60,7 +57,6 @@ function btload(){
                                 console.error(tokenizeErr);
                                 return;
                             }
-                            alert("test4");
                             // complete submit action by sending form data and nonce to server
 
                             formDataPlusNonce = $("#cardForm").serialize() 
