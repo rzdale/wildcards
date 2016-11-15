@@ -1,5 +1,5 @@
 function btload(){
-  
+    alert("test");
     if (document.getElementById('cardForm')) {
         $.ajax({
           url: "/client_token"
