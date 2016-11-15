@@ -5,13 +5,14 @@
 <table>
 <tr>
 <% @cards.each do |card| %>
-  <td width="150">
+  <td>
     <%= image_tag card.img_src, size: "120x165" %><br>
     <%= link_to "##{card.number}, #{card.name}", "/cards/#{card.id}" %>
   </td>
+  
   <% if card.id % 5 == 0 %>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
   <% end %>
   
 <% end %>
