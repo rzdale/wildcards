@@ -1,13 +1,33 @@
-<%= @card.name %>,
-<%= @card.number %>,
-<%= @card.text %>,
-<%= @card.ptype %>,
-<%= @card.rarity %>,
-<%= @card.hp %>,
-<%= @card.weakness %>,
-<%= @card.resistance %>,
-<%= @card.retreatcost %>,
-<%= @card.img_src %><br>
+<%= image_tag @card.img_src %>
 
 
-<%= link_to "Purchase", "/cards/#{@card.id}/checkout" %>
+
+<div class="cardinfo">
+<%= "##{@card.number}" %>, "<%= @card.name %>"<br>
+<% if @card.text != "" %>
+    <p><i><%= @card.text %><i></p>
+<% end %>
+<% if @card.ptype != "" %>
+    Type: <%= @card.ptype %><br>
+<% end %>
+Rarity: <%= @card.rarity %><br>
+<% if @card.hp %>
+    HP: <%= @card.hp %><br>
+<% end %>
+<% if @card.weakness %>
+    Weakness: <%= @card.weakness %><br>
+<% end %>
+<% if @card.resistance %>
+    Resistance: <%= @card.resistance %><br>
+<% end %>
+<% if @card.retreatcost %>
+    Retreat Cost: <%= @card.retreatcost %><br>
+<% end %>
+</div>
+
+
+<p>
+    $<%= number_with_precision(@card.price, :precision => 2) %><br>
+
+    <%= link_to "Purchase", "/cards/#{@card.id}/checkout" %>
+</p>

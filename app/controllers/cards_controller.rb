@@ -12,7 +12,6 @@ class CardsController < ApplicationController
   
   
   def client_token
-    puts "Gooooo to the token generator!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     render :plain => Braintree::ClientToken.generate
   end
   

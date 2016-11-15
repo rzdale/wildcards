@@ -1,13 +1,15 @@
-<%= @card.name %>,
-<%= @card.number %>,
-<%= @card.text %>,
-<%= @card.ptype %>,
-<%= @card.rarity %>,
-<%= @card.hp %>,
-<%= @card.weakness %>,
-<%= @card.resistance %>,
-<%= @card.retreatcost %>,
-<%= @card.img_src %><br>
+<%= image_tag @card.img_src %>
+
+
+
+<div class="cardinfo">
+<%= "##{@card.number}" %>, "<%= @card.name %>"<br>
+$<%= number_with_precision(@card.price, :precision => 2) %><br>
+</div>
+
+
+
+
 
 
 
@@ -31,11 +33,13 @@
     <div id="card_number" class="hosted-field"></div>  
     CVV:<br>
     <div id="cvv" class="hosted-field"></div>
-    expiration_date:<br>
+    Expiration Date:<br>
     <div id="expiration_date" class="hosted-field"></div>  
-    postal_code:<br>
+    Billing zip code:<br>
     <div id="postal_code" class="hosted-field"></div>
 
+    <script> btload(); </script>
+    
     <input type="hidden" name="price" value="<%= @card.price %>,">
     
     <input type="submit" id="submitpurchase" value="Submit">
