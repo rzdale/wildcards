@@ -1,18 +1,18 @@
-
-
-name, number, text, ptype, rarity, hp, weakness, resistance, retreatcost, img_src<br>
+<h1>Welcome to <span class=red>Wild</span>cards!</h1>
 
 
 
+<table>
+<tr>
 <% @cards.each do |card| %>
-  <%= link_to card.name, "/cards/#{card.id}" %>,
-  <%= card.number %>,
-  <%= card.text %>,
-  <%= card.ptype %>,
-  <%= card.rarity %>,
-  <%= card.hp %>,
-  <%= card.weakness %>,
-  <%= card.resistance %>,
-  <%= card.retreatcost %>,
-  <%= card.img_src %><br>
+  <td width="150">
+    <%= image_tag card.img_src, size: "120x165" %><br>
+    <%= link_to "##{card.number}, #{card.name}", "/cards/#{card.id}" %>
+  </td>
+  <% if card.id % 5 == 0 %>
+  </tr>
+  <tr>
+  <% end %>
+  
 <% end %>
+</table>

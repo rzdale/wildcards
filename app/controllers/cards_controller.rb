@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   
   
   def client_token
-    render :text => Braintree::ClientToken.generate
+    render :plain => Braintree::ClientToken.generate
   end
   
   
@@ -23,8 +23,9 @@ class CardsController < ApplicationController
   
   def purchase
     
-    neworder = Order.new(
+    neworder = Order.create(
       card_id: params[:id],
+      name: params[:name],
       address_line_1: params[:address_line_1],
       address_line_2: params[:address_line_2],
       city: params[:city],
@@ -34,18 +35,14 @@ class CardsController < ApplicationController
 
     
     result = Braintree::Transaction.sale(
-      :amount => params[:price],
-      :payment_method_nonce => params[:payment_method_nonce],
+      :amount => params[:price].to_f,
+      :payment_method_nonce => params[:nonce],
       :options => {
         :submit_for_settlement => true
       }
     )
-    
-    render :confirmation, locals: {zone: "test"}
-  
-  end
-  
-  
-  
 
+    redirect_to "/orders/#{neworder.id}/confirmation"
+
+  end
 end

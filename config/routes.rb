@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   
   get "/cards/:id/checkout" => "cards#checkout"
   
-  get "/cards/:id/purchase" => "cards#purchase"
+  post "/cards/:id/purchase" => "cards#purchase"
+  
+  get "/orders/:id/confirmation" => "orders#confirmation"
  
 end

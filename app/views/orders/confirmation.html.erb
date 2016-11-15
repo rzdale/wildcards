@@ -1,0 +1,15 @@
+Thank you for your purchase!
+
+<p><%= "Order number #{@order.id}" %></p>
+
+<p><%= "Card number #{@card.number}, '#{@card.name}', will be shipped to:" %></p>
+
+<p>
+    <%= @order.name %><br>
+    <%= @order.address_line_1 %><%= if @order.address_line_2 != "" then ", #{@order.address_line_2}" end %><br>
+    <%= @order.city %><br>
+    <%= @order.state_abbr %><br>
+    <%= @order.zip_code %><br>
+</p>
+
+<p><%= link_to "Return to home page", root_path%></p>
