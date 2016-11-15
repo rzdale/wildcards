@@ -7,7 +7,7 @@ function btload(){
         }).done(function(response_token) {
             
             var form = document.querySelector('#cardForm');
-            
+            alert("test 3 - about to create client ");
             braintree.client.create(
                 { authorization: response_token }, 
                 function(err, clientInstance) {
