@@ -33,10 +33,14 @@ class CardsController < ApplicationController
       zip_code: params[:zip_code]
     )
 
-    
-    result = Braintree::Transaction.sale(
+    method = Braintree::PaymentMethod.create(
+      :customer_id => "50004195",
+      :payment_method_nonce => params[:nonce]
+    )
+
+    sale = Braintree::Transaction.sale(
       :amount => params[:price].to_f,
-      :payment_method_nonce => params[:nonce],
+      :payment_method_token => method.payment_method_nonce,
       :options => {
         :submit_for_settlement => true
       }
